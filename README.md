@@ -1,6 +1,16 @@
-# JsHook
+<div align="center">
+<h1>JsHook</h1>
+
+[![Xposed](https://img.shields.io/badge/-Xposed-3DDC84?style=flat&logo=Android&logoColor=white)](#)
+[![license](https://img.shields.io/github/license/Xposed-Modules-Repo/me.jsonet.jshook.svg)](https://www.gnu.org/licenses/agpl-3.0.html)
+[![GitHub release](https://img.shields.io/github/release/Xposed-Modules-Repo/me.jsonet.jshook.svg)](https://github.com/Xposed-Modules-Repo/me.jsonet.jshook/releases/latest)
+[![Telegram](https://img.shields.io/static/v1?label=Telegram&message=Channel&color=0088cc)](https://t.me/jshookapp)
+[![Telegram](https://img.shields.io/static/v1?label=Telegram&message=Chat&color=0088cc)](https://t.me/jshookgroup)
+[![GitHub Downloads](https://img.shields.io/github/downloads/Xposed-Modules-Repo/me.jsonet.jshook/total?label=GitHub%20Downloads&logo=github&color=0088cc)](https://github.com/Xposed-Modules-Repo/me.jsonet.jshook/releases)
+[![LSPosed Downloads](https://img.shields.io/github/downloads/Xposed-Modules-Repo/me.jsonet.jshook/total?label=LSPosed%20Downloads&logo=Android&labelColor=F48FB1&logoColor=ffffff&color=0088cc)](https://modules.lsposed.org/module/me.jsonet.jshook)
 
 android中hook神器 支持java层和native层
+</div>
 
 ## 关于模块
 
@@ -22,5 +32,3 @@ JsHook是使用Xposed框架对任意APP的初始化进行注入Frida，Xposed模
 ### 启用脚本的应用为什么会闪退
 
 JsHook做的事情很简单，帮助开发者将Frida注入到app，如果注入的app打开闪退那就是Frida不兼容当前机型，可以点击下方技术框架链接去github提交issues反馈给Frida作者，JsHook也会第一时间跟进Frida版本。
-
-PS：目前处于1.0第一版，如遇到bug可在讨论区反馈，第一时间修复。
