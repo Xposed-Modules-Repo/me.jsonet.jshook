@@ -9,6 +9,8 @@
 [![LSPosed Downloads](https://img.shields.io/github/downloads/Xposed-Modules-Repo/me.jsonet.jshook/total?label=LSPosed%20Downloads&logo=Android&labelColor=F48FB1&logoColor=ffffff&color=0088cc)](https://modules.lsposed.org/module/me.jsonet.jshook)
 
 android中hook神器 支持java层和native层
+
+[README of English](README.US.md)
 </div>
 
 ## 关于模块
