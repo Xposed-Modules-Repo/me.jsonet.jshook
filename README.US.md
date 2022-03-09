@@ -10,7 +10,7 @@
 
 hook artifact in android support java layer and native layer
 
-[中文的README](README.MD)
+[中文的README](README.md)
 </div>
 
 ## About the module
