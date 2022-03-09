@@ -10,7 +10,7 @@
 
 hook artifact in android support java layer and native layer
 
-[中文的README](README.md)
+[中文的README](https://github.com/Xposed-Modules-Repo/me.jsonet.jshook/blob/main/README.md)
 </div>
 
 ## About the module

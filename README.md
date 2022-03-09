@@ -10,7 +10,7 @@
 
 android中hook神器 支持java层和native层
 
-[README of English](README.US.md)
+[README of English](https://github.com/Xposed-Modules-Repo/me.jsonet.jshook/blob/main/README.US.md)
 </div>
 
 ## 关于模块
