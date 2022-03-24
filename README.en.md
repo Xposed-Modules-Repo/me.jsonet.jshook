@@ -5,7 +5,6 @@
 [![GitHub release](https://img.shields.io/github/release/Xposed-Modules-Repo/me.jsonet.jshook.svg)](https://github.com/Xposed-Modules-Repo/me.jsonet.jshook/releases/latest)
 [![Telegram](https://img.shields.io/static/v1?label=Telegram&message=Channel&color=0088cc)](https://t.me/jshookapp)
 [![Telegram](https://img.shields.io/static/v1?label=Telegram&message=Chat&color=0088cc)](https://t.me/jshookgroup)
-[![GitHub Downloads](https://img.shields.io/github/downloads/Xposed-Modules-Repo/me.jsonet.jshook/total?label=GitHub%20Downloads&logo=github&color=0088cc)](https://github.com/Xposed-Modules-Repo/me.jsonet.jshook/releases)
 [![LSPosed Downloads](https://img.shields.io/github/downloads/Xposed-Modules-Repo/me.jsonet.jshook/total?label=LSPosed%20Downloads&logo=Android&labelColor=F48FB1&logoColor=ffffff&color=0088cc)](https://modules.lsposed.org/module/me.jsonet.jshook)
 
 hook artifact in android support java layer and native layer
@@ -17,7 +16,7 @@ hook artifact in android support java layer and native layer
 
 Xposed is a module framework that can change the behavior of your system and applications without touching any APK. This means that modules can work on different versions and even ROMs without any changes.
 
-JsHook is the use of Xposed framework for the initialization of any APP to inject Frida, Xposed module development requires a certain base of Java syntax, high technical threshold, hook only supports the java layer, while JsHook injection of Frida is great, only need to be a short Js syntax base, you can use the phone to quickly make their own hook plug-in, and hook support java layer and native layer.
+JsHook is the use of Xposed framework for the initialization of any app to inject Rhino/Frida, Xposed module development requires a certain Java syntax base, the technical threshold is high, while JsHook injected Rhino/Frida is great, only need to know a short Js syntax base, you can use the phone to quickly make their own hook plug-ins, and hook support java layer and native layer.
 
 ## Module compatibility
 
@@ -30,6 +29,20 @@ JsHook is the use of Xposed framework for the initialization of any APP to injec
 
 Before enabling the script, please make sure the selected application has enabled the hook service option, if it is LSPosed non-global scope in addition to check the system when activating the module also need to check the corresponding script effective application, each time you change the script content need to restart the app being hooked.
 
-### Why does the script enabled application flash back
+### How to choose an hook framework
 
-JsHook do things very simple, to help developers inject Frida into the app, if the injected app open flashback that is Frida is not compatible with the current model, you can click the technical framework link below to github submit issues feedback to Frida author, JsHook will also be the first time to follow up Frida version.
+If you are familiar with Xposed hook method, Rhino is recommended, using js call Xposed framework methods, and high compatibility; and Frida belongs to another hook framework, need to have some understanding of Frida, it is difficult to get started, and does not support some models and apps.
+
+## Cautions
+
+Version 1.0.2 before the default is frida hook, so the previous use of frida need to set the global default to frida in the framework management.
+
+## Script Description
+
+### rhino
+
+To be added...
+
+### frida
+
+To be added...
