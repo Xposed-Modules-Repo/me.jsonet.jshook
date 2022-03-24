@@ -101,12 +101,12 @@ hook the class method with the specified parameters
 ```js
 common.hookMethod('com.test.test', ['java.lang.String', 'int'], function (param) {
     //...
+    //Modify return value
+    param.setResult('fuck');
 }, function (param) {
     //...
     //Get the return value of the class method and print it
     common.log(param.getResult());
-    //Modify return value
-    param.setResult('fuck');
 });
 ```
 

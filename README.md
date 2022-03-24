@@ -101,12 +101,12 @@ hook指定参数的类方法
 ```js
 common.hookMethod('com.test.test', ['java.lang.String', 'int'], function (param) {
     //...
+    //修改返回值
+    param.setResult('fuck');
 }, function (param) {
     //...
     //获取类方法的返回值并打印
     common.log(param.getResult());
-    //修改返回值
-    param.setResult('fuck');
 });
 ```
 
