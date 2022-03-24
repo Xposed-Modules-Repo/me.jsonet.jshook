@@ -35,7 +35,7 @@ JsHook是使用Xposed框架对任意app的初始化进行注入Rhino/Frida，Xpo
 
 ## 注意事项
 
-版本1.0.2之前默认是rhino注入，所以之前使用frida的需要在框架管理中将全局默认设置为frida，导入框架目前只支持frida-gadget。
+版本1.0.2之前默认是frida注入，所以之前使用frida的需要在框架管理中将全局默认设置为frida，导入框架目前只支持frida-gadget。
 
 ## 脚本说明
 
