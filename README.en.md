@@ -35,7 +35,7 @@ If you are familiar with Xposed hook method, Rhino is recommended, using js call
 
 ## Cautions
 
-Version 1.0.2 before the default is frida hook, so the previous use of frida need to set the global default to frida in the framework management.
+Version 1.0.2 before the default is frida hook, so the previous use of frida need to use the framework management will be set to frida global default , import framework currently only supports frida-gadget.
 
 ## Script Description
 
