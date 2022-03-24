@@ -123,6 +123,8 @@ Modifying dynamic variable values
 common.setObjectField(param.thisObject, 'Variable Name', 'Variable Value');
 ```
 
+[View more](https://p-bakker.github.io/rhino/tutorials/scripting_java/)
+
 ### frida
 
-To be added...
+[View more](https://frida.re/docs/javascript-api/)

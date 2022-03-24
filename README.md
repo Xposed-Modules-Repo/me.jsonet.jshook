@@ -123,6 +123,8 @@ common.setStaticObjectField('com.test.test', '变量名', '变量值');
 common.setObjectField(param.thisObject, '变量名', '变量值');
 ```
 
+[查看更多](https://p-bakker.github.io/rhino/tutorials/scripting_java/)
+
 ### frida
 
-待补充...
+[查看更多](https://frida.re/docs/javascript-api/)
