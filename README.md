@@ -39,9 +39,89 @@ JsHook是使用Xposed框架对任意app的初始化进行注入Rhino/Frida，Xpo
 
 ## 脚本说明
 
+### 通用
+
+日志打印：
+
+```js
+common.log('...');
+```
+
+消息提示：
+
+```js
+common.toast('...');
+```
+
+获取Context：
+
+```js
+common.getcontext();
+```
+
 ### rhino
 
-待补充...
+hook构造函数
+
+```js
+common.hookAllConstructors('com.test.test', function (param) {
+    //构造函数执行前
+    //打印构造函数接收到的第一个参数
+    common.log(param.args[0]);
+    //修改这个参数的值
+    param.args[0] = 'fuck';
+}, function (param) {
+    //构造函数执行后
+    //...
+});
+```
+
+hook指定参数的构造函数
+
+```js
+common.hookConstructor('com.test.test', ['java.lang.String', 'int'], function (param) {
+    //...
+}, function (param) {
+    //...
+});
+```
+
+hook类方法
+
+```js
+common.hookAllMethods('com.test.test', function (param) {
+    //...
+}, function (param) {
+    //...
+});
+```
+
+hook指定参数的类方法
+
+```js
+common.hookMethod('com.test.test', ['java.lang.String', 'int'], function (param) {
+    //...
+}, function (param) {
+    //...
+    //获取类方法的返回值并打印
+    common.log(param.getResult());
+    //修改返回值
+    param.setResult('fuck');
+});
+```
+
+修改静态变量值
+
+```js
+common.setStaticObjectField('com.test.test', '变量名', '变量值');
+```
+
+修改动态变量值
+
+```js
+//param.thisObject 在hook回调方法中获取
+common.setObjectField(param.thisObject, '变量名', '变量值');
+```
 
 ### frida
 

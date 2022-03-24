@@ -39,9 +39,89 @@ Version 1.0.2 before the default is frida hook, so the previous use of frida nee
 
 ## Script Description
 
+### Universal
+
+Log Printing：
+
+```js
+common.log('...');
+```
+
+Message Tips：
+
+```js
+common.toast('...');
+```
+
+Get Context：
+
+```js
+common.getcontext();
+```
+
 ### rhino
 
-To be added...
+hook constructor
+
+```js
+common.hookAllConstructors('com.test.test', function (param) {
+    //Before the execution of the constructor
+    //Print the first argument received by the constructor
+    common.log(param.args[0]);
+    //Modify the value of this parameter
+    param.args[0] = 'fuck';
+}, function (param) {
+    //After the execution of the constructor
+    //...
+});
+```
+
+hook constructor with specified parameters
+
+```js
+common.hookConstructor('com.test.test', ['java.lang.String', 'int'], function (param) {
+    //...
+}, function (param) {
+    //...
+});
+```
+
+hook class method
+
+```js
+common.hookAllMethods('com.test.test', function (param) {
+    //...
+}, function (param) {
+    //...
+});
+```
+
+hook the class method with the specified parameters
+
+```js
+common.hookMethod('com.test.test', ['java.lang.String', 'int'], function (param) {
+    //...
+}, function (param) {
+    //...
+    //Get the return value of the class method and print it
+    common.log(param.getResult());
+    //Modify return value
+    param.setResult('fuck');
+});
+```
+
+Modifying static variable values
+
+```js
+common.setStaticObjectField('com.test.test', 'Variable Name', 'Variable Value');
+```
+
+Modifying dynamic variable values
+
+```js
+//param.thisObject Get in the hook callback method
+common.setObjectField(param.thisObject, 'Variable Name', 'Variable Value');
+```
 
 ### frida
 
