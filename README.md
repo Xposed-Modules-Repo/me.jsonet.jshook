@@ -89,7 +89,7 @@ common.hookConstructor('com.test.test', ['java.lang.String', 'int'], function (p
 hook类方法
 
 ```js
-common.hookAllMethods('com.test.test', function (param) {
+common.hookAllMethods('com.test.test', 'methodname', function (param) {
     //...
 }, function (param) {
     //...
@@ -99,7 +99,7 @@ common.hookAllMethods('com.test.test', function (param) {
 hook指定参数的类方法
 
 ```js
-common.hookMethod('com.test.test', ['java.lang.String', 'int'], function (param) {
+common.hookMethod('com.test.test', 'methodname', ['java.lang.String', 'int'], function (param) {
     //...
     //修改返回值
     param.setResult('fuck');
