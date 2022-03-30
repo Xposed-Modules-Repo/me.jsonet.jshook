@@ -132,6 +132,30 @@ Modifying dynamic variable values
 common.setObjectField(param.thisObject, 'Variable Name', 'Variable Value');
 ```
 
+Get static variable values
+
+```js
+common.getStaticObjectField('com.test.test', 'Variable Name');
+```
+
+Get dynamic variable values
+
+```js
+common.getObjectField(param.thisObject, 'Variable Name');
+```
+
+Active invocation of dynamic methods
+
+```js
+common.callMethod(param.thisObject, 'methodname', ['a', 1]);
+```
+
+Active invocation of static methods
+
+```js
+common.callStaticMethod('com.test.test', 'methodname', ['a', 1]);
+```
+
 [View more](https://p-bakker.github.io/rhino/tutorials/scripting_java/)
 
 ### frida

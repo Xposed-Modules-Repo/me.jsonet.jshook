@@ -123,6 +123,30 @@ common.setStaticObjectField('com.test.test', '变量名', '变量值');
 common.setObjectField(param.thisObject, '变量名', '变量值');
 ```
 
+获取静态变量值
+
+```js
+common.getStaticObjectField('com.test.test', '变量名');
+```
+
+获取动态变量值
+
+```js
+common.getObjectField(param.thisObject, '变量名');
+```
+
+主动调用动态方法
+
+```js
+common.callMethod(param.thisObject, 'methodname', ['a', 1]);
+```
+
+主动调用静态方法
+
+```js
+common.callStaticMethod('com.test.test', 'methodname', ['a', 1]);
+```
+
 [查看更多](https://p-bakker.github.io/rhino/tutorials/scripting_java/)
 
 ### frida
