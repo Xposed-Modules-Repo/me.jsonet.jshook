@@ -46,6 +46,14 @@ get started, and does not support some models and apps.
 Version 1.0.2 before the default is frida hook, so the previous use of frida need to use the framework management will
 be set to frida global default , import framework currently only supports frida-gadget.
 
+Rhino scripts before version 1.0.5 that have calls to context need to add the following code to the new version for compatibility.
+
+```js
+common.hookAllMethods('android.app.Application', 'onCreate', function (param) {
+    //Your script code
+});
+```
+
 ## Script Description
 
 ### Universal
