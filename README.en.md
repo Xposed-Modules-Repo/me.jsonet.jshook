@@ -72,6 +72,48 @@ common.getcontext();
 
 hook constructor
 
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">hookAllConstructors</td>
+</tr>
+<tr>
+<td>Parameters</td>
+<td>Parameter Type</td>
+<td>Parameter Description</td>
+<td>Required or not</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>className</td>
+<td>String</td>
+<td>Class Name</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>beforeHookedMethod</td>
+<td>Function</td>
+<td>Before the execution of the constructor</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>afterHookedMethod</td>
+<td>Function</td>
+<td>After the execution of the constructor</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>replaceHookedMethod</td>
+<td>Function</td>
+<td>Replace the constructor execution process</td>
+<td align="center">N</td>
+</tr>
+</tbody>
+</table>
+
+Example：
+
 ```js
 common.hookAllConstructors('com.test.test', function (param) {
     //Before the execution of the constructor
@@ -87,6 +129,54 @@ common.hookAllConstructors('com.test.test', function (param) {
 
 hook constructor with specified parameters
 
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">hookConstructor</td>
+</tr>
+<tr>
+<td>Parameters</td>
+<td>Parameter Type</td>
+<td>Parameter Description</td>
+<td>Required or not</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>className</td>
+<td>String</td>
+<td>Class Name</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>paramTypes</td>
+<td>Object[]</td>
+<td>Parameter Type</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>beforeHookedMethod</td>
+<td>Function</td>
+<td>Before the execution of the constructor</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>afterHookedMethod</td>
+<td>Function</td>
+<td>After the execution of the constructor</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>replaceHookedMethod</td>
+<td>Function</td>
+<td>Replace the constructor execution process</td>
+<td align="center">N</td>
+</tr>
+</tbody>
+</table>
+
+Example：
+
 ```js
 common.hookConstructor('com.test.test', ['java.lang.String', 'int'], function (param) {
     //...
@@ -97,15 +187,108 @@ common.hookConstructor('com.test.test', ['java.lang.String', 'int'], function (p
 
 hook class method
 
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">hookAllMethods</td>
+</tr>
+<tr>
+<td>Parameters</td>
+<td>Parameter Type</td>
+<td>Parameter Description</td>
+<td>Required or not</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>className</td>
+<td>String</td>
+<td>Class Name</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>beforeHookedMethod</td>
+<td>Function</td>
+<td>Before the execution of the constructor</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>afterHookedMethod</td>
+<td>Function</td>
+<td>After the execution of the constructor</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>replaceHookedMethod</td>
+<td>Function</td>
+<td>Replace the constructor execution process</td>
+<td align="center">N</td>
+</tr>
+</tbody>
+</table>
+
+Example：
+
 ```js
 common.hookAllMethods('com.test.test', 'methodname', function (param) {
     //...
 }, function (param) {
     //...
+}, function (param) {
+    //The call to the original method returns
+    return common.thisMethod(param);
 });
 ```
 
 hook the class method with the specified parameters
+
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">hookMethod</td>
+</tr>
+<tr>
+<td>Parameters</td>
+<td>Parameter Type</td>
+<td>Parameter Description</td>
+<td>Required or not</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>className</td>
+<td>String</td>
+<td>Class Name</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>paramTypes</td>
+<td>Object[]</td>
+<td>Parameter Type</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>beforeHookedMethod</td>
+<td>Function</td>
+<td>Before the execution of the constructor</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>afterHookedMethod</td>
+<td>Function</td>
+<td>After the execution of the constructor</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>replaceHookedMethod</td>
+<td>Function</td>
+<td>Replace the constructor execution process</td>
+<td align="center">N</td>
+</tr>
+</tbody>
+</table>
+
+Example：
 
 ```js
 common.hookMethod('com.test.test', 'methodname', ['java.lang.String', 'int'], function (param) {
@@ -121,18 +304,125 @@ common.hookMethod('com.test.test', 'methodname', ['java.lang.String', 'int'], fu
 
 Modifying static variable values
 
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">setStaticObjectField</td>
+</tr>
+<tr>
+<td>Parameters</td>
+<td>Parameter Type</td>
+<td>Parameter Description</td>
+<td>Required or not</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>className</td>
+<td>String</td>
+<td>Class Name</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<tr>
+<td>fieldName</td>
+<td>String</td>
+<td>Variable Name</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>fieldValue</td>
+<td>Object</td>
+<td>Variable Value</td>
+<td align="center">Y</td>
+</tr>
+</tbody>
+</table>
+
+Example：
+
 ```js
 common.setStaticObjectField('com.test.test', 'Variable Name', 'Variable Value');
 ```
 
 Modifying dynamic variable values
 
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">setObjectField</td>
+</tr>
+<tr>
+<td>Parameters</td>
+<td>Parameter Type</td>
+<td>Parameter Description</td>
+<td>Required or not</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>className</td>
+<td>Object</td>
+<td>Class name or current instance</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<tr>
+<td>fieldName</td>
+<td>String</td>
+<td>Variable Name</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>fieldValue</td>
+<td>Object</td>
+<td>Variable Value</td>
+<td align="center">Y</td>
+</tr>
+</tbody>
+</table>
+
+Example：
+
 ```js
+common.setObjectField('com.test.test', 'Variable Name', 'Variable Value');
+//or
 //param.thisObject Get in the hook callback method
 common.setObjectField(param.thisObject, 'Variable Name', 'Variable Value');
 ```
 
 Get static variable values
+
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">getStaticObjectField</td>
+</tr>
+<tr>
+<td>Parameters</td>
+<td>Parameter Type</td>
+<td>Parameter Description</td>
+<td>Required or not</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>className</td>
+<td>String</td>
+<td>Class Name</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<tr>
+<td>fieldName</td>
+<td>String</td>
+<td>Variable Name</td>
+<td align="center">Y</td>
+</tr>
+</tbody>
+</table>
+
+Example：
 
 ```js
 common.getStaticObjectField('com.test.test', 'Variable Name');
@@ -140,20 +430,156 @@ common.getStaticObjectField('com.test.test', 'Variable Name');
 
 Get dynamic variable values
 
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">getObjectField</td>
+</tr>
+<tr>
+<td>Parameters</td>
+<td>Parameter Type</td>
+<td>Parameter Description</td>
+<td>Required or not</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>className</td>
+<td>Object</td>
+<td>Class name or current instance</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<tr>
+<td>fieldName</td>
+<td>String</td>
+<td>Variable Name</td>
+<td align="center">Y</td>
+</tr>
+</tbody>
+</table>
+
+Example：
+
 ```js
-common.getObjectField(param.thisObject, 'Variable Name');
+common.getObjectField('com.test.test', 'Variable Name');
 ```
 
 Active invocation of dynamic methods
 
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">callMethod</td>
+</tr>
+<tr>
+<td>Parameters</td>
+<td>Parameter Type</td>
+<td>Parameter Description</td>
+<td>Required or not</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>className</td>
+<td>Object</td>
+<td>Class name or current instance</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<tr>
+<td>methodMame</td>
+<td>String</td>
+<td>Method name</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>paramTypes</td>
+<td>Object[]</td>
+<td>Parameter Value</td>
+<td align="center">Y</td>
+</tr>
+</tbody>
+</table>
+
+Example：
+
 ```js
-common.callMethod(param.thisObject, 'methodname', ['a', 1]);
+common.callMethod('com.test.test', 'methodname', ['a', 1]);
 ```
 
 Active invocation of static methods
 
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">callStaticMethod</td>
+</tr>
+<tr>
+<td>Parameters</td>
+<td>Parameter Type</td>
+<td>Parameter Description</td>
+<td>Required or not</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>className</td>
+<td>String</td>
+<td>Class Name</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<tr>
+<td>methodMame</td>
+<td>String</td>
+<td>Method name</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>paramTypes</td>
+<td>Object[]</td>
+<td>Parameter Value</td>
+<td align="center">Y</td>
+</tr>
+</tbody>
+</table>
+
+Example：
+
 ```js
 common.callStaticMethod('com.test.test', 'methodname', ['a', 1]);
+```
+
+Calling the original method in `replaceHookedMethod`
+
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">thisMethod</td>
+</tr>
+<tr>
+<td>Parameters</td>
+<td>Parameter Type</td>
+<td>Parameter Description</td>
+<td>Required or not</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>param</td>
+<td>Object</td>
+<td>Parameters</td>
+<td align="center">Y</td>
+</tr>
+</tbody>
+</table>
+
+Example：
+
+```js
+//param is retrieved in the replaceHookedMethod
+common.thisMethod(param);
 ```
 
 [View more](https://p-bakker.github.io/rhino/tutorials/scripting_java/)

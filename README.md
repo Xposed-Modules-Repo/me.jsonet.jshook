@@ -63,6 +63,48 @@ common.getcontext();
 
 hook构造函数
 
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">hookAllConstructors</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>参数类型</td>
+<td>参数说明</td>
+<td>是否必填</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>className</td>
+<td>String</td>
+<td>类名</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>beforeHookedMethod</td>
+<td>Function</td>
+<td>构造函数执行前</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>afterHookedMethod</td>
+<td>Function</td>
+<td>构造函数执行后</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>replaceHookedMethod</td>
+<td>Function</td>
+<td>替换构造函数执行过程</td>
+<td align="center">N</td>
+</tr>
+</tbody>
+</table>
+
+示例：
+
 ```js
 common.hookAllConstructors('com.test.test', function (param) {
     //构造函数执行前
@@ -78,6 +120,54 @@ common.hookAllConstructors('com.test.test', function (param) {
 
 hook指定参数的构造函数
 
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">hookConstructor</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>参数类型</td>
+<td>参数说明</td>
+<td>是否必填</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>className</td>
+<td>String</td>
+<td>类名</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>paramTypes</td>
+<td>Object[]</td>
+<td>参数类型</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>beforeHookedMethod</td>
+<td>Function</td>
+<td>构造函数执行前</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>afterHookedMethod</td>
+<td>Function</td>
+<td>构造函数执行后</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>replaceHookedMethod</td>
+<td>Function</td>
+<td>替换构造函数执行过程</td>
+<td align="center">N</td>
+</tr>
+</tbody>
+</table>
+
+示例：
+
 ```js
 common.hookConstructor('com.test.test', ['java.lang.String', 'int'], function (param) {
     //...
@@ -88,15 +178,108 @@ common.hookConstructor('com.test.test', ['java.lang.String', 'int'], function (p
 
 hook类方法
 
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">hookAllMethods</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>参数类型</td>
+<td>参数说明</td>
+<td>是否必填</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>className</td>
+<td>String</td>
+<td>类名</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>beforeHookedMethod</td>
+<td>Function</td>
+<td>构造函数执行前</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>afterHookedMethod</td>
+<td>Function</td>
+<td>构造函数执行后</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>replaceHookedMethod</td>
+<td>Function</td>
+<td>替换构造函数执行过程</td>
+<td align="center">N</td>
+</tr>
+</tbody>
+</table>
+
+示例：
+
 ```js
 common.hookAllMethods('com.test.test', 'methodname', function (param) {
     //...
 }, function (param) {
     //...
+}, function (param) {
+    //调用原方法返回
+    return common.thisMethod(param);
 });
 ```
 
 hook指定参数的类方法
+
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">hookMethod</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>参数类型</td>
+<td>参数说明</td>
+<td>是否必填</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>className</td>
+<td>String</td>
+<td>类名</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>paramTypes</td>
+<td>Object[]</td>
+<td>参数类型</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>beforeHookedMethod</td>
+<td>Function</td>
+<td>构造函数执行前</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>afterHookedMethod</td>
+<td>Function</td>
+<td>构造函数执行后</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>replaceHookedMethod</td>
+<td>Function</td>
+<td>替换构造函数执行过程</td>
+<td align="center">N</td>
+</tr>
+</tbody>
+</table>
+
+示例：
 
 ```js
 common.hookMethod('com.test.test', 'methodname', ['java.lang.String', 'int'], function (param) {
@@ -112,18 +295,125 @@ common.hookMethod('com.test.test', 'methodname', ['java.lang.String', 'int'], fu
 
 修改静态变量值
 
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">setStaticObjectField</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>参数类型</td>
+<td>参数说明</td>
+<td>是否必填</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>className</td>
+<td>String</td>
+<td>类名</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<tr>
+<td>fieldName</td>
+<td>String</td>
+<td>变量名</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>fieldValue</td>
+<td>Object</td>
+<td>变量值</td>
+<td align="center">Y</td>
+</tr>
+</tbody>
+</table>
+
+示例：
+
 ```js
 common.setStaticObjectField('com.test.test', '变量名', '变量值');
 ```
 
 修改动态变量值
 
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">setObjectField</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>参数类型</td>
+<td>参数说明</td>
+<td>是否必填</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>className</td>
+<td>Object</td>
+<td>类名或者当前实例</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<tr>
+<td>fieldName</td>
+<td>String</td>
+<td>变量名</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>fieldValue</td>
+<td>Object</td>
+<td>变量值</td>
+<td align="center">Y</td>
+</tr>
+</tbody>
+</table>
+
+示例：
+
 ```js
+common.setObjectField('com.test.test', '变量名', '变量值');
+//或者
 //param.thisObject 在hook回调方法中获取
 common.setObjectField(param.thisObject, '变量名', '变量值');
 ```
 
 获取静态变量值
+
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">getStaticObjectField</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>参数类型</td>
+<td>参数说明</td>
+<td>是否必填</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>className</td>
+<td>String</td>
+<td>类名</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<tr>
+<td>fieldName</td>
+<td>String</td>
+<td>变量名</td>
+<td align="center">Y</td>
+</tr>
+</tbody>
+</table>
+
+示例：
 
 ```js
 common.getStaticObjectField('com.test.test', '变量名');
@@ -131,20 +421,156 @@ common.getStaticObjectField('com.test.test', '变量名');
 
 获取动态变量值
 
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">getObjectField</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>参数类型</td>
+<td>参数说明</td>
+<td>是否必填</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>className</td>
+<td>Object</td>
+<td>类名或者当前实例</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<tr>
+<td>fieldName</td>
+<td>String</td>
+<td>变量名</td>
+<td align="center">Y</td>
+</tr>
+</tbody>
+</table>
+
+示例：
+
 ```js
-common.getObjectField(param.thisObject, '变量名');
+common.getObjectField('com.test.test', '变量名');
 ```
 
 主动调用动态方法
 
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">callMethod</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>参数类型</td>
+<td>参数说明</td>
+<td>是否必填</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>className</td>
+<td>Object</td>
+<td>类名或者当前实例</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<tr>
+<td>methodMame</td>
+<td>String</td>
+<td>方法名</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>paramTypes</td>
+<td>Object[]</td>
+<td>参数值</td>
+<td align="center">Y</td>
+</tr>
+</tbody>
+</table>
+
+示例：
+
 ```js
-common.callMethod(param.thisObject, 'methodname', ['a', 1]);
+common.callMethod('com.test.test', 'methodname', ['a', 1]);
 ```
 
 主动调用静态方法
 
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">callStaticMethod</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>参数类型</td>
+<td>参数说明</td>
+<td>是否必填</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>className</td>
+<td>String</td>
+<td>类名</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<tr>
+<td>methodMame</td>
+<td>String</td>
+<td>方法名</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>paramTypes</td>
+<td>Object[]</td>
+<td>参数值</td>
+<td align="center">Y</td>
+</tr>
+</tbody>
+</table>
+
+示例：
+
 ```js
 common.callStaticMethod('com.test.test', 'methodname', ['a', 1]);
+```
+
+`replaceHookedMethod`中调用原方法
+
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">thisMethod</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>参数类型</td>
+<td>参数说明</td>
+<td>是否必填</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>param</td>
+<td>Object</td>
+<td>参数</td>
+<td align="center">Y</td>
+</tr>
+</tbody>
+</table>
+
+示例：
+
+```js
+//param在replaceHookedMethod中获取
+common.thisMethod(param);
 ```
 
 [查看更多](https://p-bakker.github.io/rhino/tutorials/scripting_java/)
