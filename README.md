@@ -496,7 +496,7 @@ common.getObjectField('com.test.test', '变量名');
 <td>paramTypes</td>
 <td>Object[]</td>
 <td>参数值</td>
-<td align="center">Y</td>
+<td align="center">N</td>
 </tr>
 </tbody>
 </table>
@@ -539,7 +539,7 @@ common.callMethod('com.test.test', 'methodname', ['a', 1]);
 <td>paramTypes</td>
 <td>Object[]</td>
 <td>参数值</td>
-<td align="center">Y</td>
+<td align="center">N</td>
 </tr>
 </tbody>
 </table>

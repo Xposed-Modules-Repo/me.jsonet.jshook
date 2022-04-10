@@ -505,7 +505,7 @@ Active invocation of dynamic methods
 <td>paramTypes</td>
 <td>Object[]</td>
 <td>Parameter Value</td>
-<td align="center">Y</td>
+<td align="center">N</td>
 </tr>
 </tbody>
 </table>
@@ -548,7 +548,7 @@ Active invocation of static methods
 <td>paramTypes</td>
 <td>Object[]</td>
 <td>Parameter Value</td>
-<td align="center">Y</td>
+<td align="center">N</td>
 </tr>
 </tbody>
 </table>
