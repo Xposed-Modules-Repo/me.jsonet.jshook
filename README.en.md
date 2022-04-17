@@ -78,6 +78,42 @@ common.getcontext();
 
 ### rhino
 
+Get class instances
+
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">findClass</td>
+</tr>
+<tr>
+<td>Parameters</td>
+<td>Parameter Type</td>
+<td>Parameter Description</td>
+<td>Required or not</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>className</td>
+<td>String</td>
+<td>Class Name</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>classLoader</td>
+<td>ClassLoader</td>
+<td>Class Loader</td>
+<td align="center">Y</td>
+</tr>
+</tbody>
+</table>
+
+Example：
+
+```js
+common.findClass('com.test.test',classLoader);
+```
+
 hook constructor
 
 <table>
@@ -95,8 +131,8 @@ hook constructor
 <tbody>
 <tr>
 <td>className</td>
-<td>String</td>
-<td>Class Name</td>
+<td>Object</td>
+<td>Class instance or class name</td>
 <td align="center">Y</td>
 </tr>
 <tr>
@@ -152,8 +188,8 @@ hook constructor with specified parameters
 <tbody>
 <tr>
 <td>className</td>
-<td>String</td>
-<td>Class Name</td>
+<td>Object</td>
+<td>Class instance or class name</td>
 <td align="center">Y</td>
 </tr>
 <tr>
@@ -210,26 +246,26 @@ hook class method
 <tbody>
 <tr>
 <td>className</td>
-<td>String</td>
-<td>Class Name</td>
+<td>Object</td>
+<td>Class instance or class name</td>
 <td align="center">Y</td>
 </tr>
 <tr>
 <td>beforeHookedMethod</td>
 <td>Function</td>
-<td>Before the execution of the constructor</td>
+<td>Before the execution</td>
 <td align="center">N</td>
 </tr>
 <tr>
 <td>afterHookedMethod</td>
 <td>Function</td>
-<td>After the execution of the constructor</td>
+<td>After the execution</td>
 <td align="center">N</td>
 </tr>
 <tr>
 <td>replaceHookedMethod</td>
 <td>Function</td>
-<td>Replace the constructor execution process</td>
+<td>Replace execution process</td>
 <td align="center">N</td>
 </tr>
 </tbody>
@@ -245,6 +281,62 @@ common.hookAllMethods('com.test.test', 'methodname', function (param) {
 }, function (param) {
     //The call to the original method returns
     return common.thisMethod(param);
+});
+```
+
+hook the specified class method
+
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">hookByMethod</td>
+</tr>
+<tr>
+<td>Parameters</td>
+<td>Parameter Type</td>
+<td>Parameter Description</td>
+<td>Required or not</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>method</td>
+<td>Method</td>
+<td>Method Object</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>beforeHookedMethod</td>
+<td>Function</td>
+<td>Before the execution</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>afterHookedMethod</td>
+<td>Function</td>
+<td>After the execution</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>replaceHookedMethod</td>
+<td>Function</td>
+<td>Replace execution process</td>
+<td align="center">N</td>
+</tr>
+</tbody>
+</table>
+
+Example：
+
+```js
+common.hookByMethod(method, function (param) {
+    //...
+    //Modify return value
+    param.setResult('fuck');
+}, function (param) {
+    //...
+    //Get the return value of the class method and print it
+    common.log(param.getResult());
 });
 ```
 
@@ -278,19 +370,19 @@ hook the class method with the specified parameters
 <tr>
 <td>beforeHookedMethod</td>
 <td>Function</td>
-<td>Before the execution of the constructor</td>
+<td>Before the execution</td>
 <td align="center">N</td>
 </tr>
 <tr>
 <td>afterHookedMethod</td>
 <td>Function</td>
-<td>After the execution of the constructor</td>
+<td>After the execution</td>
 <td align="center">N</td>
 </tr>
 <tr>
 <td>replaceHookedMethod</td>
 <td>Function</td>
-<td>Replace the constructor execution process</td>
+<td>Replace execution process</td>
 <td align="center">N</td>
 </tr>
 </tbody>
@@ -416,8 +508,8 @@ Get static variable values
 <tbody>
 <tr>
 <td>className</td>
-<td>String</td>
-<td>Class Name</td>
+<td>Object</td>
+<td>Class instance or class name</td>
 <td align="center">Y</td>
 </tr>
 <tr>
@@ -533,8 +625,8 @@ Active invocation of static methods
 <tbody>
 <tr>
 <td>className</td>
-<td>String</td>
-<td>Class Name</td>
+<td>Object</td>
+<td>Class instance or class name</td>
 <td align="center">Y</td>
 </tr>
 <tr>

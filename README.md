@@ -69,6 +69,42 @@ common.getcontext();
 
 ### rhino
 
+获取类实例
+
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">findClass</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>参数类型</td>
+<td>参数说明</td>
+<td>是否必填</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>className</td>
+<td>String</td>
+<td>类名</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>classLoader</td>
+<td>ClassLoader</td>
+<td>类加载器</td>
+<td align="center">Y</td>
+</tr>
+</tbody>
+</table>
+
+示例：
+
+```js
+common.findClass('com.test.test',classLoader);
+```
+
 hook构造函数
 
 <table>
@@ -86,8 +122,8 @@ hook构造函数
 <tbody>
 <tr>
 <td>className</td>
-<td>String</td>
-<td>类名</td>
+<td>Object</td>
+<td>类实例或类名</td>
 <td align="center">Y</td>
 </tr>
 <tr>
@@ -143,8 +179,8 @@ hook指定参数的构造函数
 <tbody>
 <tr>
 <td>className</td>
-<td>String</td>
-<td>类名</td>
+<td>Object</td>
+<td>类实例或类名</td>
 <td align="center">Y</td>
 </tr>
 <tr>
@@ -201,26 +237,26 @@ hook类方法
 <tbody>
 <tr>
 <td>className</td>
-<td>String</td>
-<td>类名</td>
+<td>Object</td>
+<td>类实例或类名</td>
 <td align="center">Y</td>
 </tr>
 <tr>
 <td>beforeHookedMethod</td>
 <td>Function</td>
-<td>构造函数执行前</td>
+<td>函数执行前</td>
 <td align="center">N</td>
 </tr>
 <tr>
 <td>afterHookedMethod</td>
 <td>Function</td>
-<td>构造函数执行后</td>
+<td>函数执行后</td>
 <td align="center">N</td>
 </tr>
 <tr>
 <td>replaceHookedMethod</td>
 <td>Function</td>
-<td>替换构造函数执行过程</td>
+<td>替换函数执行过程</td>
 <td align="center">N</td>
 </tr>
 </tbody>
@@ -236,6 +272,62 @@ common.hookAllMethods('com.test.test', 'methodname', function (param) {
 }, function (param) {
     //调用原方法返回
     return common.thisMethod(param);
+});
+```
+
+hook指定的类方法
+
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">hookByMethod</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>参数类型</td>
+<td>参数说明</td>
+<td>是否必填</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>method</td>
+<td>Method</td>
+<td>方法对象</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>beforeHookedMethod</td>
+<td>Function</td>
+<td>函数执行前</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>afterHookedMethod</td>
+<td>Function</td>
+<td>函数执行后</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>replaceHookedMethod</td>
+<td>Function</td>
+<td>替换函数执行过程</td>
+<td align="center">N</td>
+</tr>
+</tbody>
+</table>
+
+示例：
+
+```js
+common.hookByMethod(method, function (param) {
+    //...
+    //修改返回值
+    param.setResult('fuck');
+}, function (param) {
+    //...
+    //获取类方法的返回值并打印
+    common.log(param.getResult());
 });
 ```
 
@@ -269,19 +361,19 @@ hook指定参数的类方法
 <tr>
 <td>beforeHookedMethod</td>
 <td>Function</td>
-<td>构造函数执行前</td>
+<td>函数执行前</td>
 <td align="center">N</td>
 </tr>
 <tr>
 <td>afterHookedMethod</td>
 <td>Function</td>
-<td>构造函数执行后</td>
+<td>函数执行后</td>
 <td align="center">N</td>
 </tr>
 <tr>
 <td>replaceHookedMethod</td>
 <td>Function</td>
-<td>替换构造函数执行过程</td>
+<td>替换函数执行过程</td>
 <td align="center">N</td>
 </tr>
 </tbody>
@@ -407,8 +499,8 @@ common.setObjectField(param.thisObject, '变量名', '变量值');
 <tbody>
 <tr>
 <td>className</td>
-<td>String</td>
-<td>类名</td>
+<td>Object</td>
+<td>类实例或类名</td>
 <td align="center">Y</td>
 </tr>
 <tr>
@@ -524,8 +616,8 @@ common.callMethod('com.test.test', 'methodname', ['a', 1]);
 <tbody>
 <tr>
 <td>className</td>
-<td>String</td>
-<td>类名</td>
+<td>Object</td>
+<td>类实例或类名</td>
 <td align="center">Y</td>
 </tr>
 <tr>
