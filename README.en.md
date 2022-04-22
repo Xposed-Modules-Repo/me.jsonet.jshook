@@ -419,8 +419,8 @@ Modifying static variable values
 <tbody>
 <tr>
 <td>className</td>
-<td>String</td>
-<td>Class Name</td>
+<td>Object</td>
+<td>Class name or current instance</td>
 <td align="center">Y</td>
 </tr>
 <tr>

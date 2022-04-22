@@ -410,8 +410,8 @@ common.hookMethod('com.test.test', 'methodname', ['java.lang.String', 'int'], fu
 <tbody>
 <tr>
 <td>className</td>
-<td>String</td>
-<td>类名</td>
+<td>Object</td>
+<td>类实例或类名</td>
 <td align="center">Y</td>
 </tr>
 <tr>
