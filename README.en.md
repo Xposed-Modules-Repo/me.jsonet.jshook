@@ -78,6 +78,33 @@ common.getcontext();
 
 ### rhino
 
+Get LoadPackageParam
+
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">getlpparam</td>
+</tr>
+<tr>
+<td>Parameters</td>
+<td>Parameter Type</td>
+<td>Parameter Description</td>
+<td>Required or not</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4" align="center">None</td>
+</tr>
+</tbody>
+</table>
+
+Example：
+
+```js
+common.getlpparam();
+```
+
 Get class instances
 
 <table>

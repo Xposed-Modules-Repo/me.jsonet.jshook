@@ -69,6 +69,33 @@ common.getcontext();
 
 ### rhino
 
+获取LoadPackageParam
+
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">getlpparam</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>参数类型</td>
+<td>参数说明</td>
+<td>是否必填</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4" align="center">无</td>
+</tr>
+</tbody>
+</table>
+
+示例：
+
+```js
+common.getlpparam();
+```
+
 获取类实例
 
 <table>
