@@ -12,41 +12,26 @@ hook artifact in android support java layer and native layer
 [中文的README](https://github.com/Xposed-Modules-Repo/me.jsonet.jshook/blob/main/README.md)
 </div>
 
-## About the module
+## About
 
-Xposed is a module framework that can change the behavior of your system and applications without touching any APK. This
-means that modules can work on different versions and even ROMs without any changes.
+xposed is a module framework to change the behavior of system and applications without touching any apk. This means that modules can work on different versions or even roms without any changes.
 
-JsHook is the use of Xposed framework for the initialization of any app to inject Rhino/Frida, Xposed module development
-requires a certain Java syntax base, the technical threshold is high, while JsHook injected Rhino/Frida is great, only
-need to know a short Js syntax base, you can use the phone to quickly make their own hook plug-ins, and hook support
-java layer and native layer.
+Jshook injects rhino/frida into the app. The development of xposed module requires a certain java grammar foundation, and the technical threshold is high. However, the rhino/frida injected by jshook only needs a short js to quickly implement hooks on mobile phones, and hooks support java layer and native layer.
 
-## Module compatibility
+## Compatibility
 
 1. Xposed api 82
-2. Android 7 - 12
+2. Android 5 - 12
 
-## How to use the module
+## How to use
 
 ### How to enable scripts
 
-Before enabling the script, please make sure the selected application has enabled the hook service option, if it is
-LSPosed non-global scope in addition to check the system when activating the module also need to check the corresponding
-script effective application, each time you change the script content need to restart the app being hooked.
+Before enabling the script, please confirm that the selected application has the hook service option enabled. If the lsposed non-global scope is activated, in addition to checking the system, you need to check the application that the corresponding script takes effect. Every time you change the script content, you need to restart the hooked one. app.
 
 ### How to choose an hook framework
 
-If you are familiar with Xposed hook method, Rhino is recommended, using js call Xposed framework methods, and high
-compatibility; and Frida belongs to another hook framework, need to have some understanding of Frida, it is difficult to
-get started, and does not support some models and apps.
-
-## Cautions
-
-Version 1.0.2 before the default is frida hook, so the previous use of frida need to use the framework management will
-be set to frida global default , import framework currently only supports frida-gadget.
-
-Rhino scripts before version 1.0.5 that have calls to context need to add the following code to the new version for compatibility.
+If you are familiar with the hook method of xposed, rhino is recommended, and js is used to call the api of the xposed framework, and the compatibility is high; while frida belongs to another hook framework, you need to have a certain understanding of frida, it is difficult to get started, and some parts are not supported model and app.
 
 ```js
 common.hookAllMethods('android.app.Application', 'onCreate', function (param) {
