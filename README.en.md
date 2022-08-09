@@ -46,6 +46,7 @@ Log Printing：
 
 ```js
 common.log('...');
+console.log('...');
 ```
 
 Message Tips：
@@ -59,6 +60,105 @@ Get Context：
 ```js
 common.getcontext();
 ```
+
+mod menu：
+
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">modmenu</td>
+</tr>
+<tr>
+<td>Parameters</td>
+<td>Parameter Type</td>
+<td>Parameter Description</td>
+<td>Required or not</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>String</td>
+<td>Title</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>item</td>
+<td>Array</td>
+<td>Menu Item</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>title</td>
+<td>String</td>
+<td>Title</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>change</td>
+<td>Function</td>
+<td>callback</td>
+<td align="center">N</td>
+</tr>
+</tbody>
+</table>
+
+Example：
+
+```js
+common.modmenu('test mod', [
+    {
+        'id': '1',
+        'type': 'category',
+        'title': 'category title'
+    },
+    {
+        'id': '2',
+        'type': 'switch',
+        'title': 'switch1 title',
+        'enable': true
+    },
+    {
+        'id': '3',
+        'type': 'switch',
+        'title': 'switch2 title'
+    },
+    {
+        'id': '4',
+        'type': 'webview',
+        'data': '<font color="red"><b>text</b></font>',
+        //or
+        //'url': 'http://xxxxx.com'
+    },
+    {
+        'id': '5',
+        'type': 'button',
+        'title': 'button title'
+    },
+    {
+        'id': '6',
+        'type': 'input',
+        'title': 'input title',
+        'val': 'default value'
+    },
+    {
+        'type': 'collapse',
+        'title': 'collapse title',
+        'item': [
+            {
+                'id': '7',
+                'type': 'switch',
+                'title': 'switch title'
+            }
+        ],
+        'enable': true
+    }
+], function (data) {
+    common.toast(JSON.stringify(data));
+});
+```
+
+Note: To use the mod menu, you need to keep jshook running and authorize the floating window permission. Closing jshook will cause the menu to close, which will not affect the hook service.
 
 ### rhino
 
@@ -698,3 +798,93 @@ common.thisMethod(param);
 ### frida
 
 [View more](https://frida.re/docs/javascript-api/)
+
+#### fridamod
+
+curl
+
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">curl</td>
+</tr>
+<tr>
+<td>Parameters</td>
+<td>Parameter Type</td>
+<td>Parameter Description</td>
+<td>Required or not</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>String</td>
+<td>url address</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>method</td>
+<td>String</td>
+<td>request type</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>header</td>
+<td>Array</td>
+<td>header info</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>data</td>
+<td>Object</td>
+<td>submit data</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>Function</td>
+<td>callback</td>
+<td align="center">N</td>
+</tr>
+</tbody>
+</table>
+
+Example：
+
+```js
+common.curl('https://xxxxx.com', 'post', ['token: sssss'], {data: '111'}, function (data) {
+    common.log(data);
+});
+```
+
+shell
+
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">shell</td>
+</tr>
+<tr>
+<td>Parameters</td>
+<td>Parameter Type</td>
+<td>Parameter Description</td>
+<td>Required or not</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>content</td>
+<td>String</td>
+<td>content</td>
+<td align="center">Y</td>
+</tr>
+</tbody>
+</table>
+
+Example：
+
+```js
+common.shell('curl https://xxxxx.com', function (data) {
+    common.log(data);
+});
+```

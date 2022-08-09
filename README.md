@@ -46,6 +46,7 @@ common.hookAllMethods('android.app.Application', 'onCreate', function (param) {
 
 ```js
 common.log('...');
+console.log('...');
 ```
 
 消息提示：
@@ -59,6 +60,105 @@ common.toast('...');
 ```js
 common.getcontext();
 ```
+
+mod菜单：
+
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">modmenu</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>参数类型</td>
+<td>参数说明</td>
+<td>是否必填</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>String</td>
+<td>标题</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>item</td>
+<td>Array</td>
+<td>菜单项</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>title</td>
+<td>String</td>
+<td>标题</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>change</td>
+<td>Function</td>
+<td>回调</td>
+<td align="center">N</td>
+</tr>
+</tbody>
+</table>
+
+示例：
+
+```js
+common.modmenu('test mod', [
+    {
+        'id': '1',
+        'type': 'category',
+        'title': 'category title'
+    },
+    {
+        'id': '2',
+        'type': 'switch',
+        'title': 'switch1 title',
+        'enable': true
+    },
+    {
+        'id': '3',
+        'type': 'switch',
+        'title': 'switch2 title'
+    },
+    {
+        'id': '4',
+        'type': 'webview',
+        'data': '<font color="red"><b>text</b></font>',
+        //or
+        //'url': 'http://xxxxx.com'
+    },
+    {
+        'id': '5',
+        'type': 'button',
+        'title': 'button title'
+    },
+    {
+        'id': '6',
+        'type': 'input',
+        'title': 'input title',
+        'val': 'default value'
+    },
+    {
+        'type': 'collapse',
+        'title': 'collapse title',
+        'item': [
+            {
+                'id': '7',
+                'type': 'switch',
+                'title': 'switch title'
+            }
+        ],
+        'enable': true
+    }
+], function (data) {
+    common.toast(JSON.stringify(data));
+});
+```
+
+注意：使用mod菜单需要让jshook保持运行状态且授权悬浮窗权限，关闭jshook会导致菜单关闭，不影响hook服务
 
 ### rhino
 
@@ -122,7 +222,7 @@ common.getlpparam();
 示例：
 
 ```js
-common.findClass('com.test.test',classLoader);
+common.findClass('com.test.test', classLoader);
 ```
 
 hook构造函数
@@ -698,3 +798,93 @@ common.thisMethod(param);
 ### frida
 
 [查看更多](https://frida.re/docs/javascript-api/)
+
+#### fridamod
+
+curl
+
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">curl</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>参数类型</td>
+<td>参数说明</td>
+<td>是否必填</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>String</td>
+<td>地址</td>
+<td align="center">Y</td>
+</tr>
+<tr>
+<td>method</td>
+<td>String</td>
+<td>请求类型</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>header</td>
+<td>Array</td>
+<td>头部信息</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>data</td>
+<td>Object</td>
+<td>提交数据</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>Function</td>
+<td>回调</td>
+<td align="center">N</td>
+</tr>
+</tbody>
+</table>
+
+示例：
+
+```js
+common.curl('https://xxxxx.com', 'post', ['token: sssss'], {data: '111'}, function (data) {
+    common.log(data);
+});
+```
+
+shell
+
+<table>
+<thead>
+<tr>
+<td colspan="4" align="center">shell</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>参数类型</td>
+<td>参数说明</td>
+<td>是否必填</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>content</td>
+<td>String</td>
+<td>内容</td>
+<td align="center">Y</td>
+</tr>
+</tbody>
+</table>
+
+示例：
+
+```js
+common.shell('curl https://xxxxx.com', function (data) {
+    common.log(data);
+});
+```
