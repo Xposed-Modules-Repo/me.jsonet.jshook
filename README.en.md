@@ -32,12 +32,6 @@ Before enabling the script, please confirm that the selected application has the
 
 If you are familiar with the hook method of xposed, rhino is recommended, and js is used to call the api of the xposed framework, and the compatibility is high; while frida belongs to another hook framework, you need to have a certain understanding of frida, it is difficult to get started, and some parts are not supported model and app.
 
-```js
-common.hookAllMethods('android.app.Application', 'onCreate', function (param) {
-    //Your script code
-});
-```
-
 ## Script Description
 
 ### Universal

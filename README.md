@@ -32,12 +32,6 @@ jshook是对app注入rhino/frida，xposed模块开发需要一定的java语法�
 
 如果你对xposed的hook方法比较熟，推荐rhino，使用js调用xposed框架的api，且兼容性高；而frida属于另一个hook框架，需要对frida有一定的了解，上手较难，且不支持部分机型和app。
 
-```js
-common.hookAllMethods('android.app.Application', 'onCreate', function (param) {
-    //你的脚本代码
-});
-```
-
 ## 脚本说明
 
 ### 通用
