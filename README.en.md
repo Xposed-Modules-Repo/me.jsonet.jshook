@@ -49,6 +49,12 @@ Message Tips：
 common.toast('...');
 ```
 
+pop-up prompt：
+
+```js
+common.dialog('...');
+```
+
 Get Context：
 
 ```js
@@ -146,6 +152,78 @@ common.modmenu('test mod', [
             }
         ],
         'enable': true
+    },
+    {
+        'id': '8',
+        'type': 'slider',
+        'title': 'slider title',
+        'val': 88,
+        'min': 1,
+        'max': 100
+    },
+    {
+        'id': '9',
+        'type': 'checkbox',
+        'title': 'checkbox title',
+        'enable': true
+    },
+    {
+        'type': 'checkboxs',
+        'item': [
+            {
+                'id': '10',
+                'type': 'checkbox',
+                'title': '1 title'
+            },
+            {
+                'id': '11',
+                'type': 'checkbox',
+                'title': '2 title'
+            },
+            {
+                'id': '12',
+                'type': 'checkbox',
+                'title': '33333333 title'
+            }
+        ]
+    },
+    {
+        'id': '13',
+        'type': 'radio',
+        'title': 'radio title',
+        'item': ['test', 'test2', 'test3']
+    }
+], function (data) {
+    common.toast(JSON.stringify(data));
+});
+```
+
+Example with tabs：
+
+```js
+common.modmenu('test mod', [
+    {
+        'type': 'tab',
+        'title': 'tab1 title',
+        'item': [
+            {
+                'id': '1',
+                'type': 'switch',
+                'title': 'switch1 title'
+            }
+        ],
+        'enable': true
+    },
+    {
+        'type': 'tab',
+        'title': 'tab2 title',
+        'item': [
+            {
+                'id': '2',
+                'type': 'switch',
+                'title': 'switch2 title'
+            }
+        ]
     }
 ], function (data) {
     common.toast(JSON.stringify(data));
