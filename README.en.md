@@ -20,7 +20,7 @@ Jshook injects rhino/frida into the app. The development of xposed module requir
 ## Compatibility
 
 1. Xposed api 82
-2. Android 5 - 12
+2. Android 5 - 13
 
 ## How to use
 

@@ -20,7 +20,7 @@ jshook是对app注入rhino/frida，xposed模块开发需要一定的java语法�
 ## 兼容
 
 1. Xposed api 82
-2. Android 5 - 12
+2. Android 5 - 13
 
 ## 如何使用
 
