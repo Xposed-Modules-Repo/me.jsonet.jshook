@@ -20,7 +20,7 @@ rhino contains the API of xposed, which is mainly used for the hook of the java 
 ## Compatibility
 
 1. Xposed api 82
-2. Android 5 - 13
+2. Android 5 - 14
 
 ## New version 1.1
 

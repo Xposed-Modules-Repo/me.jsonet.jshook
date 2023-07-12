@@ -20,7 +20,7 @@ rhino包含了xposed的api，主要用于java层的hook；frida注入后js可以
 ## 兼容
 
 1. Xposed api 82
-2. Android 5 - 13
+2. Android 5 - 14
 
 ## 全新1.1版本
 
